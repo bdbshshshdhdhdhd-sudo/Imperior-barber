@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="description" content="Imperior Barber — barbearia premium, cortes impecáveis e estilo de verdade.">
+<title>Imperior Barber | Estilo e Atitude</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d4af37;
+  --gold-light: #f3d77a;
+  --black: #090909;
+  --panel: #121212;
+  --white: #f5f2eb;
+  --muted: #aaa69d;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:85px; }
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+img { display:block; width:100%; }
+.container { width:min(1120px,90%); margin:auto; }
+.gold { color:var(--gold); }
+section { padding:95px 0; }
+.eyebrow {
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:4px;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,48px);
+  font-weight:600;
+  line-height:1.15;
+}
+.section-desc {
+  color:var(--muted);
+  max-width:520px;
+  line-height:1.8;
+  margin-top:18px;
+  font-size:14px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 24px;
+  background:var(--gold);
+  color:#111;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  border:1px solid var(--gold);
+  transition:.25s;
+  cursor:pointer;
+}
+.btn:hover { background:var(--gold-light); transform:translateY(-3px); }
+.btn-outline { background:transparent; color:var(--gold); }
+.btn-outline:hover { background:var(--gold); color:#111; }
+
+/* HEADER */
+header {
+  height:76px;
+  display:flex;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,9,9,.96);
+  border-bottom:1px solid rgba(212,175,55,.22);
+  backdrop-filter:blur(12px);
+}
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo {
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+.logo small {
+  display:block;
+  text-align:center;
+  color:var(--gold);
+  font-family:'Montserrat',sans-serif;
+  font-size:8px;
+  letter-spacing:5px;
+  margin-top:3px;
+}
+.nav-links { display:flex; gap:24px; align-items:center; }
+.nav-links a {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  transition:.2s;
+}
+.nav-links a:hover { color:var(--gold); }
+.menu-toggle {
+  display:none;
+  background:none;
+  border:1px solid #444;
+  color:var(--gold);
+  font-size:24px;
+  padding:4px 11px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero {
+  min-height:640px;
+  min-height:calc(90svh - 76px);
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 52%,rgba(0,0,0,.18) 100%),
+    linear-gradient(0deg,#090909 0%,transparent 24%),
+    url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85') center 45%/cover;
+}
+.hero-content { padding:80px 0; max-width:690px; }
+.hero .eyebrow { margin-bottom:24px; }
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,8vw,88px);
+  line-height:1.04;
+  font-weight:600;
+  letter-spacing:-1px;
+}
+.hero h1 span { color:var(--gold); }
+.hero p {
+  max-width:440px;
+  color:#c7c2b9;
+  line-height:1.9;
+  font-size:14px;
+  margin:25px 0 32px;
+}
+.hero-actions { display:flex; gap:13px; flex-wrap:wrap; }
+.hero-note {
+  margin-top:44px;
+  padding-top:20px;
+  border-top:1px solid rgba(212,175,55,.4);
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.hero-note strong { display:block; color:var(--gold); font-size:17px; }
+.hero-note span { display:block; color:#b9b5ac; font-size:10px; margin-top:6px; }
+
+/* INTRO */
+.intro-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+.intro-image { position:relative; padding:0 18px 18px 0; }
+.intro-image img { height:440px; object-fit:cover; filter:brightness(.83); }
+.intro-image:after {
+  content:"";
+  position:absolute;
+  inset:18px 0 0 18px;
+  border:1px solid var(--gold);
+  z-index:-1;
+}
+.intro-copy p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2;
+  margin:22px 0 28px;
+}
+.signature {
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-style:italic;
+  margin-top:25px;
+}
+
+/* SERVICES */
+.services { background:#101010; }
+.center { text-align:center; }
+.center .section-desc { margin:18px auto 0; }
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:48px;
+}
+.service-card {
+  background:#171717;
+  border:1px solid #292929;
+  padding:32px 25px;
+  transition:.3s;
+}
+.service-card:hover { border-color:var(--gold); transform:translateY(-5px); }
+.service-icon { font-size:28px; margin-bottom:23px; }
+.service-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  margin-bottom:12px;
+}
+.service-card p {
+  font-size:12px;
+  line-height:1.8;
+  color:var(--muted);
+  min-height:44px;
+}
+.price-row {
+  border-top:1px solid #333;
+  padding-top:18px;
+  margin-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.price-row span { color:var(--muted); font-size:11px; }
+.price-row strong { color:var(--gold); font-size:21px; }
+
+/* GALLERY */
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:42px;
+}
+.gallery-item {
+  position:relative;
+  overflow:hidden;
+  background:#181818;
+}
+.gallery-item img {
+  height:330px;
+  object-fit:cover;
+  transition:transform .5s;
+  filter:brightness(.82);
+}
+.gallery-item:hover img { transform:scale(1.06); filter:brightness(1); }
+.gallery-label {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:40px 18px 18px;
+  background:linear-gradient(transparent,rgba(0,0,0,.92));
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+}
+
+/* EXPERIENCE */
+.experience {
+  background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.67)),
+  url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=80') center/cover;
+  text-align:center;
+  border-top:1px solid #242018;
+  border-bottom:1px solid #242018;
+}
+.experience .section-title { max-width:700px; margin:auto; }
+.experience .section-desc { margin:20px auto 30px; }
+
+/* BOOKING */
+.booking-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:start;
+}
+.contact-list { margin-top:30px; }
+.contact-item {
+  padding:18px 0;
+  border-bottom:1px solid #292929;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.contact-symbol { color:var(--gold); font-size:21px; }
+.contact-item strong { display:block; font-size:12px; margin-bottom:7px; }
+.contact-item span { color:var(--muted); font-size:12px; line-height:1.7; }
+.booking-box {
+  padding:32px;
+  border:1px solid #383124;
+  background:linear-gradient(145deg,#181818,#0e0e0e);
+}
+.booking-box h3 {
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin-bottom:12px;
+}
+.booking-box p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+.booking-box label {
+  display:block;
+  font-size:10px;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin:18px 0 9px;
+}
+.booking-box input,.booking-box select,.booking-box textarea {
+  width:100%;
+  background:#0b0b0b;
+  border:1px solid #393939;
+  padding:14px;
+  color:#fff;
+  font-family:inherit;
+  font-size:13px;
+  border-radius:0;
+}
+.booking-box input:focus,.booking-box select:focus,.booking-box textarea:focus {
+  outline:1px solid var(--gold);
+}
+.booking-box textarea { min-height:85px; resize:vertical; }
+.booking-box .btn { width:100%; margin-top:22px; }
+.form-note { font-size:10px!important; margin:12px 0 0!important; }
+
+/* FOOTER */
+footer {
+  padding:38px 0;
+  border-top:1px solid #29251b;
+  background:#060606;
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.footer-copy { color:#888; font-size:10px; line-height:1.8; }
+.footer-links { display:flex; gap:18px; flex-wrap:wrap; }
+.footer-links a { font-size:11px; color:#c6c1b8; }
+.footer-links a:hover { color:var(--gold); }
+.whatsapp-float {
+  position:fixed;
+  bottom:22px;
+  right:20px;
+  z-index:90;
+  width:54px;
+  height:54px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#25d366;
+  color:#071b0e;
+  border-radius:50%;
+  font-size:26px;
+  box-shadow:0 5px 25px #0008;
+}
+
+/* MOBILE */
+@media(max-width:760px) {
+  section { padding:70px 0; }
+  header { height:68px; }
+  .logo { font-size:20px; }
+  .menu-toggle { display:block; }
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    right:0;
+    padding:22px 5%;
+    background:#0c0c0c;
+    border-bottom:1px solid #41371f;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+  .nav-links.open { display:flex; }
+  .nav-links a { padding:14px 0; border-bottom:1px solid #242424; }
+  .nav-links .btn { margin-top:14px; text-align:center; }
+  .hero {
+    min-height:calc(88svh - 68px);
+    background-position:58% center;
+  }
+  .hero-content { padding:65px 0; }
+  .hero h1 { font-size:clamp(46px,12vw,66px); }
+  .hero p { font-size:13px; }
+  .hero-note { gap:22px; }
+  .intro-grid,.booking-grid { grid-template-columns:1fr; gap:38px; }
+  .intro-image img { height:330px; }
+  .service-grid { grid-template-columns:1fr; gap:14px; margin-top:34px; }
+  .service-card { padding:27px 22px; }
+  .service-card p { min-height:0; }
+  .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .gallery-item img { height:240px; }
+  .gallery-item:last-child { grid-column:1/-1; }
+  .gallery-item:last-child img { height:280px; }
+  .gallery-label { font-size:17px; padding:35px 12px 13px; }
+  .booking-box { padding:24px 18px; }
+  .footer-inner { flex-direction:column; align-items:flex-start; }
+}
+@media(max-width:380px) {
+  .hero-actions .btn { width:100%; }
+  .gallery-item img { height:190px; }
+  .hero-note { gap:15px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#inicio">IMPERIOR<span class="gold">.</span>
+      <small>BARBER SHOP</small>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">A barbearia</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+      <a class="btn" href="#agendar">Agendar horário</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">✦ Tradição, elegância e atitude</div>
+      <h1>Seu estilo.<br>Sua <span>identidade.</span></h1>
+      <p>Mais do que um corte, uma experiência. Descubra uma barbearia onde cada detalhe importa e seu estilo é levado a sério.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#agendar">✦ Agende seu horário</a>
+        <a class="btn btn-outline" href="#servicos">Conheça os serviços</a>
+      </div>
+      <div class="hero-note">
+        <div><strong>01</strong><span>Estilo personalizado</span></div>
+        <div><strong>02</strong><span>Atendimento premium</span></div>
+        <div><strong>03</strong><span>Atenção aos detalhes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container intro-grid">
+    <div class="intro-image">
+      <img src="https://images.unsplash.com/photo- barber?auto=format&fit=crop&w=900&q=80"
+           alt="Ambiente de barbearia"
+           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80'">
+    </div>
+    <div class="intro-copy">
+      <div class="eyebrow">Nossa essência</div>
+      <h2 class="section-title">A arte de cuidar<br>do <span class="gold">seu estilo.</span></h2>
+      <p>A Imperior Barber nasceu da paixão pela barbearia clássica e pelo cuidado com cada cliente. Aqui, técnica, personalidade e atenção se encontram para criar um visual que combina com você.</p>
+      <p>Um ambiente pensado para quem valoriza qualidade, confiança e uma experiência diferenciada do início ao fim.</p>
+      <a class="btn btn-outline" href="#agendar">Venha nos conhecer</a>
+      <div class="signature">Imperior Barber</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Experiência premium</div>
+      <h2 class="section-title">Nossos <span class="gold">serviços</span></h2>
+      <p class="section-desc">Cada serviço é realizado com atenção aos detalhes, técnica profissional e respeito ao seu estilo.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-icon">✂</div>
+        <h3>Corte masculino</h3>
+        <p>Do clássico ao moderno, um corte personalizado para você.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 40</strong></div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">♛</div>
+        <h3>Barba premium</h3>
+        <p>Modelagem, acabamento e cuidado para uma barba impecável.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 25</strong></div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">✦</div>
+        <h3>Corte + barba</h3>
+        <p>O combo ideal para renovar o visual com estilo completo.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 60</strong></div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">◈</div>
+        <h3>Degradê</h3>
+        <p>Transições precisas, acabamento limpo e visual marcante.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 45</strong></div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">♜</div>
+        <h3>Pezinho</h3>
+        <p>Manutenção do contorno e acabamento do seu corte.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 15</strong></div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">✧</div>
+        <h3>Sobrancelha</h3>
+        <p>Acabamento cuidadoso para complementar seu visual.</p>
+        <div class="price-row"><span>A partir de</span><strong>R$ 15</strong></div>
+      </article>
+    </div>
+    <p class="section-desc center" style="margin-top:28px">* Valores ilustrativos para o portfólio. Confirme os preços reais antes de publicar para clientes.</p>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Precisão em cada detalhe</div>
+      <h2 class="section-title">Estilo que fala <span class="gold">por si.</span></h2>
+      <p class="section-desc">Inspire-se em diferentes estilos e encontre o visual que combina com você.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=80" alt="Corte masculino moderno">
+        <div class="gallery-label">Corte moderno</div>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" alt="Barbeiro trabalhando em um corte">
+        <div class="gallery-label">Precisão e técnica</div>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Interior de barbearia">
+        <div class="gallery-label">Ambiente premium</div>
+      </div>
+    </div>
+    <p class="section-desc center" style="margin-top:22px">Imagens ilustrativas. Substitua-as por fotos autorizadas dos seus próprios cortes para apresentar seu trabalho real.</p>
+  </div>
+</section>
+
+<section class="experience">
+  <div class="container">
+    <div class="eyebrow">Sua próxima experiência começa aqui</div>
+    <h2 class="section-title">Não é só um corte.<br>É uma questão de <span class="gold">presença.</span></h2>
+    <p class="section-desc">Seu próximo visual merece atenção aos mínimos detalhes. Reserve seu horário e venha viver essa experiência.</p>
+    <a href="#agendar" class="btn">Quero agendar ✦</a>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container booking-grid">
+    <div>
+      <div class="eyebrow">Estamos esperando você</div>
+      <h2 class="section-title">Vamos cuidar<br>do seu <span class="gold">visual?</span></h2>
+      <p class="section-desc">Entre em contato para tirar dúvidas, consultar horários e conhecer nossos serviços.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-symbol">⌖</div>
+          <div><strong>Localização</strong><span>Adicione aqui o endereço da barbearia.</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-symbol">◷</div>
+          <div><strong>Horário de atendimento</strong><span>Adicione aqui os dias e horários de funcionamento.</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-symbol">✆</div>
+          <div><strong>Agendamento</strong><span>Solicite seu horário pelo WhatsApp.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-box" id="agendar">
+      <h3>Reserve seu horário</h3>
+      <p>Preencha os dados e continue pelo WhatsApp para confirmar seu agendamento.</p>
+      <form id="bookingForm">
+        <label for="clientName">Seu nome</label>
+        <input id="clientName" name="name" type="text" placeholder="Como podemos te chamar?" required maxlength="80">
+
+        <label for="service">Escolha o serviço</label>
+        <select id="service" name="service" required>
+          <option value="">Selecione um serviço</option>
+          <option>Corte masculino — R$ 40</option>
+          <option>Barba premium — R$ 25</option>
+          <option>Corte + barba — R$ 60</option>
+          <option>Degradê — R$ 45</option>
+          <option>Pezinho — R$ 15</option>
+          <option>Sobrancelha — R$ 15</option>
+        </select>
+
+        <label for="date">Data desejada</label>
+        <input id="date" name="date" type="date" required>
+
+        <label for="time">Horário desejado</label>
+        <select id="time" name="time" required>
+          <option value="">Selecione um horário</option>
+          <option>09:00</option><option>10:00</option>
+          <option>11:00</option><option>13:00</option>
+          <option>14:00</option><option>15:00</option>
+          <option>16:00</option><option>17:00</option>
+          <option>18:00</option>
+        </select>
+
+        <label for="notes">Observações (opcional)</label>
+        <textarea id="notes" name="notes" placeholder="Alguma preferência para o corte?"></textarea>
+
+        <button type="submit" class="btn">Continuar no WhatsApp ↗</button>
+        <p class="form-note">O horário só será confirmado após o retorno da barbearia. Este formulário não armazena reservas.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="#inicio">IMPERIOR<span class="gold"
